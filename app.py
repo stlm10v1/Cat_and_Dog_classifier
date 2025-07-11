@@ -7,7 +7,7 @@ import base64
 #import SessionState
 
 import numpy as np
-model = load_model('Model.h5',compile=False)
+model = load_model('Model.keras',compile=False)
 model.compile()
 
 st.title('Cat & Dog Image Classifier')
