@@ -2,6 +2,7 @@ import streamlit as st
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.image import load_img
 from tensorflow.keras.preprocessing.image import img_to_array
+import base64
 #import SessionState
 
 import numpy as np
@@ -9,6 +10,35 @@ model = load_model('Model.h5',compile=False)
 model.compile()
 
 st.title('Cat & Dog Image Classifier')
+
+
+
+# Function to encode image to base64
+def get_base64_of_bin_file(bin_file):
+    with open(bin_file, 'rb') as f:
+        data = f.read()
+    return base64.b64encode(data).decode()
+
+# Apply background image using CSS
+def set_background(image_file):
+    bin_str = get_base64_of_bin_file(image_file)
+    page_bg_img = f'''
+    <style>
+    .stApp {{
+      background-image: url("data:image/jpg;base64,{bin_str}");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }}
+    </style>
+    '''
+    st.markdown(page_bg_img, unsafe_allow_html=True)
+
+# Set the background
+set_background('p1.jpg')
+
+
+
 input_image = st.file_uploader('Upload image')
 
 
