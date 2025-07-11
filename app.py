@@ -5,20 +5,10 @@ from tensorflow.keras.preprocessing.image import img_to_array
 #import SessionState
 
 import numpy as np
-model = load_model('Model.h5',compile=False)
+model = load_model('Model',compile=False)
 model.compile()
 
 st.title('Cat & Dog Image Classifier')
-
-
-
-# Function to encode image to base64
-def get_base64_of_bin_file(bin_file):
-    with open(bin_file, 'rb') as f:
-        data = f.read()
-    return base64.b64encode(data).decode()
-
-
 
 
 input_image = st.file_uploader('Upload image')
