@@ -40,7 +40,7 @@ Try the model live here:
 - `Image classification.ipynb` – ML models using HOG + scikit-learn
 - `cnn3.ipynb` – CNN model training using Keras
 - `app.py` – Streamlit app code for deployment
-- `Modelv2.keras` / `Modelv2.h5` – Trained CNN model
+- `Modelv2.keras` – Trained CNN model
 - `requirements.txt` – Python dependencies
 
 ---
